@@ -31,7 +31,9 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public void setStudents(Student[] students) {
-		this.students=students;// Add your implementation here
+		try{this.students=students;}// Add your implementation here
+		catch(IllegalArgumentException ex)
+                {System.out.println(ex);}
 	}
 
 	@Override
@@ -42,14 +44,15 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public void setStudent(Student student, int index) {
-		// Add your implementation here
-                this.students[index]=student;
-		
+		try{// Add your implementation here
+                this.students[index]=student;}
+		catch(IllegalArgumentException ex)
+                {System.out.println(ex);}
 	}
 
 	@Override
 	public void addFirst(Student student) {
-		// Add your implementation here
+	      try{  // Add your implementation here
                 int x=this.students.length;
 		Student[] s=new Student[x+1];
 		s[0]=student;
@@ -57,25 +60,29 @@ public class StudentGroup implements StudentArrayOperation {
                 {
 		s[i+1]=this.students[i];
 		}
-		this.students=s;
+		this.students=s;}
+		catch(IllegalArgumentException ex)
+                {System.out.println(ex);}
 	}
 
 	@Override
 	public void addLast(Student student) {
-		// Add your implementation here
-		 int x=this.students.length;
+		try{// Add your implementation here
+      		int x=this.students.length;
 		Student[] s=new Student[x+1];
 		s[x]=student;
 		for(int i=0;i<x;i++)
                 {
 		s[i]=this.students[i];
 		}
-		this.students=s;
+		this.students=s;}
+		catch(IllegalArgumentException ex)
+                {System.out.println(ex);}
 	}
 
 	@Override
 	public void add(Student student, int index) {
-		// Add your implementation here
+		try{// Add your implementation here
 		 int x=this.students.length;
 		Student[] s=new Student[x+1];
 		for(int i=0;i<index;i++)
@@ -87,12 +94,15 @@ public class StudentGroup implements StudentArrayOperation {
 		s[i]=this.students[i-1];
 		}
                 s[index]=student;
-		this.students=s;
+		this.students=s;}
+		
+		catch(IllegalArgumentException ex)
+                {System.out.println(ex);}
 	}
 
 	@Override
 	public void remove(int index) {
-		// Add your implementation here
+		try{// Add your implementation here
                 int x=this.students.length;
 		Student[] s=new Student[x-1];
 		for(int i=0;i<index;i++)
@@ -103,12 +113,14 @@ public class StudentGroup implements StudentArrayOperation {
 		{
 		s[i]=this.students[i+1];
 		}
-		this.students=s;
+		this.students=s;}
+		catch(IllegalArgumentException ex)
+                {System.out.println(ex);}
 	}
 
 	@Override
 	public void remove(Student student) {
-		// Add your implementation here
+		try{// Add your implementation here
 		int x=this.students.length;
 		for(int i=0;i<x;i++)
  		{
@@ -127,7 +139,10 @@ public class StudentGroup implements StudentArrayOperation {
 		break;
 		}
 		
-		}	
+		}}
+		
+		catch(IllegalArgumentException ex)
+                {System.out.println(ex);}	
 	}
 
 	@Override
